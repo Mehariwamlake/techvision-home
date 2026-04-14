@@ -8,6 +8,6 @@ services:
     container_name: nextjs-standalone-container
     environment:
       NODE_ENV: production
-      PORT: "4000"
+      PORT: "3000"
     restart: unless-stopped
 
