@@ -1,7 +1,7 @@
 version: "3.8"
 
 services:
-  nextjs-app:
+  nextjs-standalone:
     build: .
     image: ghcr.io/mehariwamlake/lms-nextjs:latest
     container_name: nextjs-app-container
