@@ -31,12 +31,13 @@ export default function Home() {
         
 
         <div className="space-x-6 hidden md:flex">
-          <a href="#" className="hover:text-blue-400">Features</a>
-          <a href="#" className="hover:text-blue-400">Courses</a>
-          <a href="#" className="hover:text-blue-400">Exam Prep</a>
+          <a href="https://learn.techvision.edu.et/lms/batches" className="hover:text-blue-400">Batches</a>
+          <a href="https://learn.techvision.edu.et/lms/courses" className="hover:text-blue-400">Courses</a>
+          <a href="https://learn.techvision.edu.et/lms/courses/national-exam-grade-12" className="hover:text-blue-400">Exam Prep</a>
+          <a href="https://learn.techvision.edu.et/lms/job-openings" className="hover:text-blue-400">Job Opportunities</a>
         </div>
 
-        <a href="/Get-started" className="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700">
+        <a href="https://learn.techvision.edu.et/lms" className="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700">
           Get Started
         </a>
       </nav>
@@ -62,7 +63,7 @@ export default function Home() {
             <a href="/Get-started" className="bg-blue-600 px-6 py-3 rounded-xl hover:bg-blue-700">
               Start Practicing
             </a>
-            <a href="#" className="border border-gray-700 px-6 py-3 rounded-xl hover:bg-gray-800">
+            <a href="https://learn.techvision.edu.et/lms" className="border border-gray-700 px-6 py-3 rounded-xl hover:bg-gray-800">
               Explore
             </a>
           </div>
@@ -171,6 +172,7 @@ export default function Home() {
         <motion.button
           whileHover={{ scale: 1.1 }}
           className="mt-6 bg-white text-black px-8 py-3 rounded-xl text-lg"
+          onClick={() => window.location.href = "https://learn.techvision.edu.et/lms/courses/national-exam-grade-12"}
         >
           Join Now
         </motion.button>
