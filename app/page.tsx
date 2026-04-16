@@ -31,13 +31,13 @@ export default function Home() {
         
 
         <div className="space-x-6 hidden md:flex">
-          <a href="https://learn.techvision.edu.et/lms/batches" className="hover:text-blue-400">Batches</a>
+          <a href="https://learn.techvision.edu.et/login?redirect-to=/lms/batches/#login" className="hover:text-blue-400">Batches</a>
           <a href="https://learn.techvision.edu.et/lms/courses" className="hover:text-blue-400">Courses</a>
           <a href="https://learn.techvision.edu.et/lms/courses/national-exam-grade-12" className="hover:text-blue-400">Exam Prep</a>
           <a href="https://learn.techvision.edu.et/lms/job-openings" className="hover:text-blue-400">Job Opportunities</a>
         </div>
 
-        <a href="https://learn.techvision.edu.et/lms" className="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700">
+        <a href="https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login" className="bg-blue-600 px-4 py-2 rounded-lg hover:bg-blue-700">
           Get Started
         </a>
       </nav>
@@ -60,11 +60,11 @@ export default function Home() {
           </p>
 
           <div className="mt-8 flex gap-4">
-            <a href="/Get-started" className="bg-blue-600 px-6 py-3 rounded-xl hover:bg-blue-700">
+            <a href="https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login" className="bg-blue-600 px-6 py-3 rounded-xl hover:bg-blue-700">
               Start Practicing
             </a>
-            <a href="https://learn.techvision.edu.et/lms" className="border border-gray-700 px-6 py-3 rounded-xl hover:bg-gray-800">
-              Explore
+            <a href="https://learn.techvision.edu.et/login?redirect-to=/lms/courses/#login" className="border border-gray-700 px-6 py-3 rounded-xl hover:bg-gray-800">
+              Explore programs
             </a>
           </div>
         </motion.div>
