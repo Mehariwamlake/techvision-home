@@ -1,154 +1,50 @@
-"use client";
-
-import { useState } from "react";
-
-export default function HireCourseCreator() {
-  const [form, setForm] = useState({
-    name: "",
-    email: "",
-    expertise: "",
-    experience: "",
-    portfolio: "",
-    message: "",
-  });
-
-  const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    console.log("Form Data:", form);
-
-    alert("Application submitted successfully 🚀");
-
-    setForm({
-      name: "",
-      email: "",
-      expertise: "",
-      experience: "",
-      portfolio: "",
-      message: "",
-    });
-  };
-
+export default function SolutionsPage() {
   return (
-    <main className="min-h-screen bg-gray-950 text-white px-6 py-16">
-      
-      <div className="max-w-3xl mx-auto">
-        
-        {/* Header */}
-        <h1 className="text-4xl font-bold text-center mb-4">
-          Become a Course Creator
-        </h1>
-        <p className="text-gray-400 text-center mb-10">
-          Join TechVision LMS and start earning by creating high-quality courses.
-        </p>
+    <div className="container py-24">
+      <h1 className="text-5xl font-bold text-center">
+        Industry Solutions
+      </h1>
 
-        {/* Form */}
-        <form
-          onSubmit={handleSubmit}
-          className="bg-gray-900 p-8 rounded-2xl space-y-6 shadow-lg"
-        >
-          {/* Name */}
-          <div>
-            <label className="block mb-2 text-gray-300">Full Name</label>
-            <input
-              type="text"
-              name="name"
-              value={form.name}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700"
-            />
-          </div>
+      <div className="grid md:grid-cols-3 gap-8 mt-16">
+        <div className="border rounded-3xl p-8">
+          <h2 className="text-2xl font-bold">
+            Schools & Universities
+          </h2>
 
-          {/* Email */}
-          <div>
-            <label className="block mb-2 text-gray-300">Email Address</label>
-            <input
-              type="email"
-              name="email"
-              value={form.email}
-              onChange={handleChange}
-              required
-              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700"
-            />
-          </div>
+          <ul className="mt-6 space-y-2">
+            <li>Student Management</li>
+            <li>Learning Management</li>
+            <li>Teacher Management</li>
+            <li>Payroll</li>
+          </ul>
+        </div>
 
-          {/* Expertise */}
-          <div>
-            <label className="block mb-2 text-gray-300">
-              Area of Expertise
-            </label>
-            <input
-              type="text"
-              name="expertise"
-              placeholder="e.g. Web Development, AI, Design"
-              value={form.expertise}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700"
-            />
-          </div>
+        <div className="border rounded-3xl p-8">
+          <h2 className="text-2xl font-bold">
+            Telecom Companies
+          </h2>
 
-          {/* Experience */}
-          <div>
-            <label className="block mb-2 text-gray-300">
-              Years of Experience
-            </label>
-            <select
-              name="experience"
-              value={form.experience}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700"
-            >
-              <option value="">Select</option>
-              <option>0-1 years</option>
-              <option>2-3 years</option>
-              <option>4-6 years</option>
-              <option>7+ years</option>
-            </select>
-          </div>
+          <ul className="mt-6 space-y-2">
+            <li>Asset Tracking</li>
+            <li>Procurement</li>
+            <li>HRMS</li>
+            <li>Projects</li>
+          </ul>
+        </div>
 
-          {/* Portfolio */}
-          <div>
-            <label className="block mb-2 text-gray-300">
-              Portfolio / Links
-            </label>
-            <input
-              type="url"
-              name="portfolio"
-              placeholder="Website, YouTube, GitHub..."
-              value={form.portfolio}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700"
-            />
-          </div>
+        <div className="border rounded-3xl p-8">
+          <h2 className="text-2xl font-bold">
+            Businesses
+          </h2>
 
-          {/* Message */}
-          <div>
-            <label className="block mb-2 text-gray-300">
-              Tell us about yourself
-            </label>
-            <textarea
-              name="message"
-              rows="4"
-              value={form.message}
-              onChange={handleChange}
-              className="w-full px-4 py-3 rounded-lg bg-gray-800 border border-gray-700"
-            />
-          </div>
-
-          {/* Submit */}
-          <button
-            type="submit"
-            className="w-full bg-blue-600 py-3 rounded-xl text-lg hover:bg-blue-700"
-          >
-            Apply Now
-          </button>
-        </form>
+          <ul className="mt-6 space-y-2">
+            <li>Accounting</li>
+            <li>Inventory</li>
+            <li>Sales</li>
+            <li>CRM</li>
+          </ul>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }
