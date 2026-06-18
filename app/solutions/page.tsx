@@ -1,50 +1,30 @@
+import type { Metadata } from "next";
+import { SiteNav } from "@/components/site/site-nav";
+import { SiteFooter } from "@/components/site/site-footer";
+import { PageHeader } from "@/components/site/page-header";
+import { ProductSections } from "@/components/solutions/product-sections";
+import { BundlesSection } from "@/components/site/bundles-section";
+import { CtaBanner } from "@/components/site/cta-banner";
+
+export const metadata: Metadata = {
+  title: "Solutions — TechVision",
+  description:
+    "Explore TechVision's LMS, Education ERP, ERP, and HR Management System. Buy individually or bundle them into a suite.",
+};
+
 export default function SolutionsPage() {
   return (
-    <div className="container py-24">
-      <h1 className="text-5xl font-bold text-center">
-        Industry Solutions
-      </h1>
-
-      <div className="grid md:grid-cols-3 gap-8 mt-16">
-        <div className="border rounded-3xl p-8">
-          <h2 className="text-2xl font-bold">
-            Schools & Universities
-          </h2>
-
-          <ul className="mt-6 space-y-2">
-            <li>Student Management</li>
-            <li>Learning Management</li>
-            <li>Teacher Management</li>
-            <li>Payroll</li>
-          </ul>
-        </div>
-
-        <div className="border rounded-3xl p-8">
-          <h2 className="text-2xl font-bold">
-            Telecom Companies
-          </h2>
-
-          <ul className="mt-6 space-y-2">
-            <li>Asset Tracking</li>
-            <li>Procurement</li>
-            <li>HRMS</li>
-            <li>Projects</li>
-          </ul>
-        </div>
-
-        <div className="border rounded-3xl p-8">
-          <h2 className="text-2xl font-bold">
-            Businesses
-          </h2>
-
-          <ul className="mt-6 space-y-2">
-            <li>Accounting</li>
-            <li>Inventory</li>
-            <li>Sales</li>
-            <li>CRM</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <main className="relative min-h-screen overflow-x-hidden">
+      <SiteNav />
+      <PageHeader
+        eyebrow="Solutions"
+        title="Powerful products for learning, operations, and people"
+        description="Each TechVision product is a complete, cloud-based system on its own — and even more powerful together. Buy what you need, scale when you're ready."
+      />
+      <ProductSections />
+      <BundlesSection />
+      <CtaBanner />
+      <SiteFooter />
+    </main>
   );
 }

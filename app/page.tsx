@@ -1,17 +1,25 @@
-import Hero from "@/components/hero";
-import Features from "@/components/features";
-import Solutions from "@/components/solutions";
-import Pricing from "@/components/pricing";
-import CTA from "@/components/cta";
+import { SiteNav } from "@/components/site/site-nav";
+import { SiteFooter } from "@/components/site/site-footer";
+import { HomeHero } from "@/components/home/home-hero";
+import { StatsBand } from "@/components/home/stats-band";
+import { SolutionsGrid } from "@/components/home/solutions-grid";
+import { WhyTechVision } from "@/components/home/why-techvision";
+import { IndustriesStrip } from "@/components/home/industries-strip";
+import { PricingPlans } from "@/components/site/pricing-plans";
+import { CtaBanner } from "@/components/site/cta-banner";
 
-export default function HomePage() {
+export default function Home() {
   return (
-    <main>
-      <Hero />
-      <Features />
-      <Solutions />
-      <Pricing />
-      <CTA />
+    <main className="relative min-h-screen overflow-x-hidden">
+      <SiteNav />
+      <HomeHero />
+      <StatsBand />
+      <SolutionsGrid />
+      <WhyTechVision />
+      <IndustriesStrip />
+      <PricingPlans />
+      <CtaBanner />
+      <SiteFooter />
     </main>
   );
 }
