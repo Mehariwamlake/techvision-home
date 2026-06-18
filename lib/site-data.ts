@@ -134,11 +134,11 @@ export const pricingPlans = [
   {
     name: "Starter",
     description: "For small teams getting started",
-    monthly: 49,
-    annual: 39,
+    monthly: "10,000",
+    annual: "96,000",
     features: [
       "1 product module",
-      "Up to 50 users",
+      "Up to 100 users",
       "Cloud hosting",
       "Email support",
       "Mobile access",
@@ -149,8 +149,8 @@ export const pricingPlans = [
   {
     name: "Growth",
     description: "For growing organizations",
-    monthly: 129,
-    annual: 109,
+    monthly: 13000,
+    annual: 124000,
     features: [
       "Up to 2 product modules",
       "Up to 250 users",
@@ -165,8 +165,8 @@ export const pricingPlans = [
   {
     name: "Education Suite",
     description: "LMS + Education ERP bundle",
-    monthly: 199,
-    annual: 169,
+    monthly: 18000,
+    annual: 172800,
     features: [
       "LMS + Education ERP",
       "Unlimited students",
@@ -181,8 +181,8 @@ export const pricingPlans = [
   {
     name: "Enterprise Suite",
     description: "All products, fully managed",
-    monthly: 349,
-    annual: 299,
+    monthly: 24000,
+    annual: 230400,
     features: [
       "All four products",
       "Unlimited users",
