@@ -47,7 +47,11 @@ export function ProductSections() {
                       {product.cards.map((card) => (
                         <div
                           key={card.title}
-                          className="flex flex-col gap-1 rounded-[2px] border border-[#111827] bg-[#FCF8FA] p-4 shadow-[-5px_5px_0_-1px_#FCF8FA,-5px_5px_0_0_#111827]"
+                          className={`flex flex-col gap-1 rounded-[2px] border bg-[#FCF8FA] p-4 ${
+                            product.cardStyle === "plain"
+                              ? "border-[#DCD9DB]"
+                              : "border-[#111827] shadow-[-5px_5px_0_-1px_#FCF8FA,-5px_5px_0_0_#111827]"
+                          }`}
                         >
                           <card.icon className="h-[19px] w-[18px] text-[#006E2F]" />
                           <h3 className="font-mono text-sm font-medium text-[#111827]">

@@ -8,6 +8,8 @@ import {
   ShieldCheck,
   Users,
   Wallet,
+  Banknote,
+  TrendingUp,
 } from "lucide-react";
 import { title } from "process";
 
@@ -24,6 +26,7 @@ export type Product = {
   short: string;
   tagline: string;
   lead?: string;
+  cardStyle?: "offset" | "plain";
   description: string;
   image: string;
   features?: string[];
@@ -95,14 +98,24 @@ export const solutionsProducts: Product[] = [
     name: "HR Management System",
     short: "HR Management",
     tagline: "Empower your people operations",
+    lead: "Empower your people operations",
+    cardStyle: "plain",
     description:
       "Streamline hiring, payroll, attendance, and performance so your HR team can focus on people instead of paperwork.",
     image: "/dashboards/hr-dashboard.png",
-    features: [
-      "Payroll Automation",
-      "Seamless and compliant processing.",
-      "Analytics",
-      "Deep dives into workforce metrics.",
+
+    cards: [
+      {
+        icon: Banknote,
+        title: "Payroll Automation",
+        description: "Seamless and compliant processing.",
+      },
+
+      {
+        icon: TrendingUp,
+        title: "Analytics",
+        description: "Deep dives into workforce metrics.",
+      },
     ],
     startingPrice: 59,
   },
