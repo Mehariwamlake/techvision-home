@@ -4,22 +4,22 @@ import { Check, ArrowRight } from "lucide-react";
 import { solutionsProducts } from "./solutions-content";
 export function ProductSections() {
   return (
-    <div className="relative">
+    <div className="mx-auto flex max-w-[1264px] flex-col gap-36 px-6 py-24">
       {solutionsProducts.map((product, idx) => {
         const reversed = idx % 2 === 1;
         return (
           <section
             key={product.slug}
             id={product.slug}
-            className={`scroll-mt-24 py-20 lg:py-28 ${idx % 2 === 1 ? "bg-secondary/40 border-y border-border" : ""}`}
+            className="scroll-mt-24 border border-[#111827] bg-[#FCF8FA] shadow-[-8px_5px_0_-1px_#FCF8FA,-8px_5px_0_0_#111827]"
           >
-            <div className="max-w-[1320px] mx-auto px-6 lg:px-12">
-              <div
-                className={`grid items-center gap-12 lg:grid-cols-2 lg:gap-16 ${
-                  reversed ? "lg:[&>*:first-child]:order-2" : ""
-                }`}
-              >
-                <div>
+            <div className="py-16">
+              <div className="grid grid-cols-1 gap-8 px-6 lg:grid-cols-12 lg:items-start lg:px-0">
+                <div
+                  className={`lg:col-span-5 lg:row-start-1 ${
+                    reversed ? "lg:col-start-7" : "lg:col-start-2"
+                  }`}
+                >
                   <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-foreground">
                     {product.short}
                   </span>
@@ -61,7 +61,11 @@ export function ProductSections() {
                   </div>
                 </div>
 
-                <div className="relative">
+                <div
+                  className={`lg:col-span-5 lg:row-start-1 ${
+                    reversed ? "lg:col-start-2" : "lg:col-start-7"
+                  }`}
+                >
                   <div className="rounded-2xl border border-border bg-card p-2 shadow-2xl shadow-primary/10">
                     <Image
                       src={product.image}
