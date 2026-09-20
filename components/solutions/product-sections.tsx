@@ -66,14 +66,16 @@ export function ProductSections() {
                     reversed ? "lg:col-start-2" : "lg:col-start-7"
                   }`}
                 >
-                  <div className="rounded-2xl border border-border bg-card p-2 shadow-2xl shadow-primary/10">
-                    <Image
-                      src={product.image}
-                      alt={`${product.name} dashboard`}
-                      width={1200}
-                      height={780}
-                      className="rounded-xl w-full h-auto"
-                    />
+                  <div className="h-80 rounded-[4px] border border-[#DCD9DB] bg-[#FCF8FA] p-4">
+                    <div className="relative aspect-[16/10] w-full overflow-hidden rounded-[2px] border border-[#DCD9DB]/50 shadow-[0_1px_2px_0_rgba(0,0,0,0.05)]">
+                      <Image
+                        src={product.image}
+                        alt={`${product.name} dashboard`}
+                        fill
+                        sizes="(min-width: 1024px) 454px, 100vw"
+                        className="object-cover object-[0%_48%]"
+                      />
+                    </div>
                   </div>
                 </div>
               </div>
