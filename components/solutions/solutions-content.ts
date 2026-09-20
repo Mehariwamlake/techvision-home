@@ -23,6 +23,7 @@ export type Product = {
   name: string;
   short: string;
   tagline: string;
+  lead?: string;
   description: string;
   image: string;
   features?: string[];
@@ -77,6 +78,7 @@ export const solutionsProducts: Product[] = [
     name: "ERP System",
     short: "ERP",
     tagline: "One system to run your whole business",
+    lead: "One system to run your whole business.",
     description:
       "Unify finance, inventory, sales, and supply chain with a modular ERP that gives leadership real-time visibility across operations.",
     image: "/dashboards/erp-dashboard.png",

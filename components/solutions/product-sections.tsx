@@ -29,7 +29,16 @@ export function ProductSections() {
                       {product.name}
                     </h2>
                   </div>
-                  <p className="mt-6 text-[16px] text-[#45464C] leading-[24px] align-middle ">
+                  <p
+                    className={`mt-6 leading-6 text-[#45464C] ${
+                      product.lead ? "text-base" : "text-sm"
+                    }`}
+                  >
+                    {product.lead && (
+                      <strong className="block text-xl font-black leading-6 text-[#45464C]">
+                        {product.lead}
+                      </strong>
+                    )}
                     {product.description}
                   </p>
 
