@@ -23,8 +23,6 @@ export type Product = {
   slug: string;
   icon: LucideIcon;
   name: string;
-  short: string;
-  tagline: string;
   lead?: string;
   cardStyle?: "offset" | "plain";
   description: string;
@@ -39,8 +37,6 @@ export const solutionsProducts: Product[] = [
     slug: "lms",
     icon: BookOpen,
     name: "Learning Management System",
-    short: "LMS",
-    tagline: "Deliver world-class digital learning",
     description:
       "A complete LMS to create courses, track learner progress, run assessments, and deliver engaging blended learning at any scale.",
     image: "/dashboards/lms-dashboard.png",
@@ -55,8 +51,6 @@ export const solutionsProducts: Product[] = [
     slug: "education-erp",
     icon: GraduationCap,
     name: "Education ERP",
-    short: "Education ERP",
-    tagline: "Run your entire institution from one place",
     description:
       "Manage admissions, fees, timetables, exams, and parent communication in a single platform built for schools and universities.",
     image: "/dashboards/education-erp-dashboard.png",
@@ -79,8 +73,6 @@ export const solutionsProducts: Product[] = [
     slug: "erp",
     icon: Building2,
     name: "ERP System",
-    short: "ERP",
-    tagline: "One system to run your whole business",
     lead: "One system to run your whole business.",
     description:
       "Unify finance, inventory, sales, and supply chain with a modular ERP that gives leadership real-time visibility across operations.",
@@ -96,8 +88,6 @@ export const solutionsProducts: Product[] = [
     slug: "hr",
     icon: Users,
     name: "HR Management System",
-    short: "HR Management",
-    tagline: "Empower your people operations",
     lead: "Empower your people operations",
     cardStyle: "plain",
     description:
