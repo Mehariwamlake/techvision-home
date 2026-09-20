@@ -1,12 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Check, ArrowRight } from "lucide-react";
-import { products } from "@/lib/site-data";
-
+import { solutionsProducts } from "./solutions-content";
 export function ProductSections() {
   return (
     <div className="relative">
-      {products.map((product, idx) => {
+      {solutionsProducts.map((product, idx) => {
         const reversed = idx % 2 === 1;
         return (
           <section
@@ -37,7 +36,9 @@ export function ProductSections() {
                         <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15">
                           <Check className="h-3 w-3 text-primary" />
                         </span>
-                        <span className="text-sm text-foreground/90">{feature}</span>
+                        <span className="text-sm text-foreground/90">
+                          {feature}
+                        </span>
                       </li>
                     ))}
                   </ul>
@@ -52,7 +53,10 @@ export function ProductSections() {
                     </Link>
                     <span className="text-sm text-muted-foreground">
                       From{" "}
-                      <span className="font-medium text-foreground">${product.startingPrice}</span>/mo
+                      <span className="font-medium text-foreground">
+                        ${product.startingPrice}
+                      </span>
+                      /mo
                     </span>
                   </div>
                 </div>
