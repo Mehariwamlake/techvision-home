@@ -1,19 +1,39 @@
 // Solutions page copy of the product data to match with figma design
+import type { LucideIcon } from "lucide-react";
+import {
+  BookOpen,
+  Building2,
+  GraduationCap,
+  icons,
+  ShieldCheck,
+  Users,
+  Wallet,
+} from "lucide-react";
+import { title } from "process";
+
+export type FeatureCard = {
+  icon: LucideIcon;
+  title: string;
+  description: string;
+};
 
 export type Product = {
   slug: string;
+  icon: LucideIcon;
   name: string;
   short: string;
   tagline: string;
   description: string;
   image: string;
-  features: string[];
+  features?: string[];
+  cards?: FeatureCard[];
   startingPrice: number;
 };
 
 export const solutionsProducts: Product[] = [
   {
     slug: "lms",
+    icon: BookOpen,
     name: "Learning Management System",
     short: "LMS",
     tagline: "Deliver world-class digital learning",
@@ -29,23 +49,31 @@ export const solutionsProducts: Product[] = [
   },
   {
     slug: "education-erp",
+    icon: GraduationCap,
     name: "Education ERP",
     short: "Education ERP",
     tagline: "Run your entire institution from one place",
     description:
       "Manage admissions, fees, timetables, exams, and parent communication in a single platform built for schools and universities.",
     image: "/dashboards/education-erp-dashboard.png",
-    features: [
-      // TODO: replace with the Figma text
-      "Administration",
-      "Streamline daily operations.",
-      "Fee Management",
-      "Automate billing and payments.",
+    cards: [
+      {
+        icon: ShieldCheck,
+        title: "Administration",
+        description: "Streamline daily operations.",
+      },
+
+      {
+        icon: Wallet,
+        title: "Fee Management",
+        description: "Automate billing and payments.",
+      },
     ],
     startingPrice: 79,
   },
   {
     slug: "erp",
+    icon: Building2,
     name: "ERP System",
     short: "ERP",
     tagline: "One system to run your whole business",
@@ -61,6 +89,7 @@ export const solutionsProducts: Product[] = [
   },
   {
     slug: "hr",
+    icon: Users,
     name: "HR Management System",
     short: "HR Management",
     tagline: "Empower your people operations",

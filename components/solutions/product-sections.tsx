@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Check, ArrowRight } from "lucide-react";
+import { CircleCheck, ArrowRight } from "lucide-react";
 import { solutionsProducts } from "./solutions-content";
 export function ProductSections() {
   return (
@@ -17,48 +17,63 @@ export function ProductSections() {
               <div className="grid grid-cols-1 gap-8 px-6 lg:grid-cols-12 lg:items-start lg:px-0">
                 <div
                   className={`lg:col-span-5 lg:row-start-1 ${
-                    reversed ? "lg:col-start-7" : "lg:col-start-2"
+                    reversed ? "lg:col-start-7 lg:pl-8" : "lg:col-start-2"
                   }`}
                 >
-                  <span className="inline-flex rounded-full bg-primary/10 px-3 py-1 text-xs font-medium text-foreground">
-                    {product.short}
-                  </span>
-                  <h2 className="mt-4 font-display text-3xl md:text-4xl lg:text-5xl tracking-tight text-balance">
-                    {product.tagline}
-                  </h2>
-                  <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
+                  <div className="flex items-center gap-3">
+                    <span className="flex h-10 w-10 shrink-0 items-center justify-center border border-[#6B7280] bg-white">
+                      <product.icon className="h-5 w-5 text-[#111827]" />
+                    </span>
+
+                    <h2 className="font-display align-middle text-[30px] font-medium leading-[38px] tracking-[0px] text-[#111827]">
+                      {product.name}
+                    </h2>
+                  </div>
+                  <p className="mt-6 text-[16px] text-[#45464C] leading-[24px] align-middle ">
                     {product.description}
                   </p>
 
-                  <ul className="mt-7 grid gap-3 sm:grid-cols-2">
-                    {product.features.map((feature) => (
-                      <li key={feature} className="flex items-start gap-2.5">
-                        <span className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-primary/15">
-                          <Check className="h-3 w-3 text-primary" />
-                        </span>
-                        <span className="text-sm text-foreground/90">
+                  {product.cards ? (
+                    <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                      {product.cards.map((card) => (
+                        <div
+                          key={card.title}
+                          className="flex flex-col gap-1 rounded-[2px] border border-[#111827] bg-[#FCF8FA] p-4 shadow-[-5px_5px_0_-1px_#FCF8FA,-5px_5px_0_0_#111827]"
+                        >
+                          <card.icon className="h-[19px] w-[18px] text-[#006E2F]" />
+                          <h3 className="font-mono text-sm font-medium text-[#111827]">
+                            {card.title}
+                          </h3>
+                          <p className="text-xs leading-5 text-[#45464C]">
+                            {card.description}
+                          </p>
+                        </div>
+                      ))}
+                    </div>
+                  ) : (
+                    <ul className="mt-6 flex flex-col gap-[18px]">
+                      {product.features?.map((feature) => (
+                        <li
+                          key={feature}
+                          className="flex items-center gap-3 text-sm leading-6 text-[#111827]"
+                        >
+                          <CircleCheck className="h-4 w-4 shrink-0 text-[#2DB266]" />
                           {feature}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
 
-                  <div className="mt-8 flex flex-wrap items-center gap-4">
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors group"
-                    >
-                      Request Demo
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                    </Link>
-                    <span className="text-sm text-muted-foreground">
-                      From{" "}
-                      <span className="font-medium text-foreground">
-                        ${product.startingPrice}
-                      </span>
-                      /mo
-                    </span>
-                  </div>
+                  <p className="mt-6 font-mono text-xs text-[#111827]">
+                    From ${product.startingPrice}/mo{" "}
+                  </p>
+                  <Link
+                    href="/contact"
+                    className="mt-6 flex w-fit items-center gap-2 rounded-[2px] bg-[#111827] px-8 py-[13px] font-mono text-sm leading-5 text-white shadow-[-5px_5px_0_0_#2DB266]"
+                  >
+                    Request Demo
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
                 </div>
 
                 <div
