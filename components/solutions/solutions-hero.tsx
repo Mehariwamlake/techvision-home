@@ -31,7 +31,7 @@ export function SolutionsHero() {
 
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-[3px] border border-[#111827] bg-[#FBF8F8] px-8 py-3 font-mono text-[14px] text-[#111827] shadow-[-5px_5px_0_0_#FBF8F8,-5px_5px_0_1px_#111827]"
+              className="inline-flex items-center justify-center rounded-[3px] border border-[#111827] bg-[#FBF8F8] px-8 py-3 font-mono text-[14px] text-[#111827] shadow-[-5px_5px_0_0_#FCF8FA,-5px_5px_0_1px_#111827]"
             >
               Schedule Demo
             </Link>
