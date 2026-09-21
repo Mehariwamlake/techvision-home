@@ -4,8 +4,7 @@ import { SiteFooter } from "@/components/site/site-footer";
 import { SolutionsHero } from "@/components/solutions/solutions-hero";
 import { ProductSections } from "@/components/solutions/product-sections";
 import { BundlesSection } from "@/components/site/bundles-section";
-import { CtaBanner } from "@/components/site/cta-banner";
-
+import { SolutionsCta } from "@/components/solutions/solutions-cta";
 export const metadata: Metadata = {
   title: "Solutions — TechVision",
   description:
@@ -19,7 +18,7 @@ export default function SolutionsPage() {
       <SolutionsHero />
       <ProductSections />
       <BundlesSection />
-      <CtaBanner />
+      <SolutionsCta />
       <SiteFooter />
     </main>
   );
