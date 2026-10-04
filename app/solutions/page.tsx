@@ -3,7 +3,6 @@ import { SiteNav } from "@/components/site/site-nav";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SolutionsHero } from "@/components/solutions/solutions-hero";
 import { ProductSections } from "@/components/solutions/product-sections";
-import { BundlesSection } from "@/components/site/bundles-section";
 import { SolutionsCta } from "@/components/solutions/solutions-cta";
 export const metadata: Metadata = {
   title: "Solutions — TechVision",
@@ -13,11 +12,10 @@ export const metadata: Metadata = {
 
 export default function SolutionsPage() {
   return (
-    <main className="relative min-h-screen overflow-x-hidden bg-[#FCF8FA]">
+    <main className="relative min-h-screen overflow-x-hidden bg-background">
       <SiteNav />
       <SolutionsHero />
       <ProductSections />
-      <BundlesSection />
       <SolutionsCta />
       <SiteFooter />
     </main>

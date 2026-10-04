@@ -1,42 +1,63 @@
-import React from "react"
-import type { Metadata } from 'next'
-import { Instrument_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import './globals.css'
+import React from "react";
+import type { Metadata } from "next";
+import { Archivo, JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@Vercel/analytics/next";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
 
-const instrumentSans = Instrument_Sans({ 
+const archivo = Archivo({
   subsets: ["latin"],
-  variable: '--font-instrument'
+  variable: "--font-archivo",
 });
 
-const instrumentSerif = Instrument_Serif({ 
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  weight: "400",
-  variable: '--font-instrument-serif'
-});
-
-const jetbrainsMono = JetBrains_Mono({ 
-  subsets: ["latin"],
-  variable: '--font-jetbrains'
+  variable: "--font-jetbrains",
 });
 
 export const metadata: Metadata = {
-  title: 'TechVision — Smart Digital Solutions for Modern Organizations',
-  description: 'TechVision builds cloud-based LMS, Education ERP, ERP, and HR Management systems that help schools, universities, and businesses run smarter. Local Ethiopian support.',
-  generator: 'v0.app',
-}
+  title: "TechVision — Smart Digital Solutions for Modern Organizations",
+  description:
+    "TechVision builds cloud-based LMS, Education ERP, ERP, and HR Management systems that help schools, universities, and businesses run smarter. Local Ethiopian support.",
+  generator: "v0.app",
+  icons: {
+  icon: [
+    {
+      url: "/brand/techvision-light.svg",
+      media: "(prefers-color-scheme: light)",
+    },
+    {
+      url: "/brand/techvision-dark.svg",
+      media: "(prefers-color-scheme: dark)",
+    },
+  ],
+},
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="bg-background">
-      <body className={`${instrumentSans.variable} ${instrumentSerif.variable} ${jetbrainsMono.variable} font-sans antialiased`}>
-        {children}
-        <Analytics />
+    <html
+      lang="en"
+      suppressHydrationWarning
+      data-scroll-behavior="smooth"
+    >
+      <body
+        className={`${archivo.variable} ${jetbrainsMono.variable} font-sans antialiased`}
+      >
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
-  )
+  );
 }

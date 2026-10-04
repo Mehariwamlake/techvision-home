@@ -142,6 +142,7 @@ export const pricingPlans = [
       "Cloud hosting",
       "Email support",
       "Mobile access",
+      "Limited support"
     ],
     cta: "Start free trial",
     popular: false,
@@ -160,7 +161,7 @@ export const pricingPlans = [
       "Custom branding",
     ],
     cta: "Start free trial",
-    popular: false,
+    popular: true,
   },
   {
     name: "Education Suite",
@@ -176,7 +177,7 @@ export const pricingPlans = [
       "Local Ethiopian support",
     ],
     cta: "Talk to sales",
-    popular: false,
+    popular: true,
   },
   {
     name: "Enterprise Suite",

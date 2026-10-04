@@ -1,46 +1,67 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { navLinks } from "@/lib/site-data";
+import { PageLoader } from "@/components/site/page-loader";
+import { ThemeToggle } from "@/components/site/theme-toggle";
+import Image from "next/image";
 
 export function SiteNav() {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  
   const pathname = usePathname();
+  const router = useRouter();
+
+  const handleNavigation = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string
+  ) => {
+    if (href === pathname) return;
+    e.preventDefault();
+    
+    setIsLoading(true);
+    setIsMobileMenuOpen(false);
+    
+    setTimeout(() => {
+      router.push(href);
+    }, 200);
+  };
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  setIsLoading(false);
+}, [pathname]);
 
   return (
-    <header
-      className={`fixed z-50 transition-all duration-500 ${
-        isScrolled ? "top-4 left-4 right-4" : "top-0 left-0 right-0"
-      }`}
-    >
-      <nav
-        className={`mx-auto transition-all duration-500 ${
-          isScrolled || isMobileMenuOpen
-            ? "bg-background/80 backdrop-blur-xl border border-border rounded-2xl shadow-lg shadow-primary/5 max-w-[1200px]"
-            : "bg-transparent max-w-[1320px]"
-        }`}
-      >
-        <div
-          className={`flex items-center justify-between transition-all duration-500 px-5 lg:px-8 ${
-            isScrolled ? "h-14" : "h-20"
-          }`}
-        >
-          <Link href="/" className="flex items-center gap-2.5 group">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground font-display text-lg shadow-sm shadow-primary/30">
-              T
-            </span>
-            <span className="font-display text-xl tracking-tight">TechVision</span>
+  <>
+    {isLoading && <PageLoader />}
+
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background">
+      <nav className="mx-auto  bg-background border border-border ">
+        <div className="flex h-20 items-center justify-between px-5 lg:px-8">
+          <Link
+          href="/"
+          onClick={(e) => handleNavigation(e, "/")}
+          className="flex items-center">
+             <Image
+             src="/brand/techvision-blue.jpg"
+             alt="Tech Vision"
+             width={180}
+             height={40}
+             priority
+             className="h-10 w-auto dark:hidden"/>
+             
+             <Image
+             src="/brand/techvision-green.svg"
+             alt="Tech Vision"
+             width={180}
+             height={40}
+             priority
+             className="hidden h-10 w-auto dark:block"/>
           </Link>
 
           <div className="hidden lg:flex items-center gap-9">
@@ -50,6 +71,7 @@ export function SiteNav() {
                 <Link
                   key={link.name}
                   href={link.href}
+                  onClick={(e) => handleNavigation(e, link.href)}
                   className={`text-sm transition-colors duration-300 relative group ${
                     active ? "text-foreground" : "text-foreground/70 hover:text-foreground"
                   }`}
@@ -66,17 +88,25 @@ export function SiteNav() {
           </div>
 
           <div className="hidden lg:flex items-center gap-3">
-            <Button asChild variant="ghost" size="sm" className="rounded-full text-foreground/80 hover:text-foreground">
-              <Link href="/contact">Sign in</Link>
-            </Button>
-            <Button
-              asChild
-              size="sm"
-              className="rounded-full bg-primary text-primary-foreground hover:bg-primary/90 px-5 shadow-sm shadow-primary/30"
-            >
-              <Link href="/contact">Request Demo</Link>
-            </Button>
-          </div>
+  <ThemeToggle />
+
+  <Button
+    asChild
+    variant="ghost"
+    size="sm"
+    className="inline-flex items-center justify-center rounded-[3px] border border-[#111827] bg-[#111827] px-5 py-2 font-mono text-[12px] text-white shadow-[-4px_4px_0_0_#00D38D] hover:bg-[#111827] hover:text-white"
+  >
+    <Link href="/contact">Sign in</Link>
+  </Button>
+
+  <Button
+    asChild
+    size="sm"
+    className="inline-flex items-center justify-center rounded-[3px] border border-[#111827] bg-[#FBF8F8] px-5 py-2 font-mono text-[12px] text-[#111827] shadow-[-4px_4px_0_0_#FCF8FA,-4px_4px_0_1px_#111827] hover:bg-[#FBF8F8] hover:text-[#111827]"
+  >
+    <Link href="/contact">Request Demo</Link>
+  </Button>
+</div>
 
           <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -99,7 +129,7 @@ export function SiteNav() {
               <Link
                 key={link.name}
                 href={link.href}
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => handleNavigation(e, link.href)}
                 className={`text-4xl font-display text-foreground transition-all duration-500 ${
                   isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
                 }`}
@@ -124,5 +154,6 @@ export function SiteNav() {
         </div>
       </div>
     </header>
+  </>
   );
 }
